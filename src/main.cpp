@@ -6,7 +6,7 @@
 
 #include "main.h"
 
-RS485 rs(SLAVE_killMission);
+RS485 rs(SLAVE_KILLMISSION);
 
 Thread thread_killswitch;
 Thread thread_missionswitch;
@@ -30,7 +30,7 @@ void function_kill()
     {
       buffer_send[0] = 0;
     }
-    rs.write(SLAVE_killMission,cmd_array[0],nb_byte_send,buffer_send);
+    rs.write(SLAVE_KILLMISSION,cmd_array[0],nb_byte_send,buffer_send);
   }
 }
 
@@ -53,10 +53,9 @@ void function_mission()
     {
       buffer_send[0] = 0;
     }
-    rs.write(SLAVE_killMission,cmd_array[0],nb_byte_send,buffer_send);
+    rs.write(SLAVE_KILLMISSION,cmd_array[0],nb_byte_send,buffer_send);
   }
 }
-
 
 int main() 
 {
