@@ -1,15 +1,11 @@
 /***
  * 
- * Example code: This code is a simple program that turn on/off a LED with a button while another LED flash.
+ * Killswitch Circuit board program
+ * Updated : 2022-05-14
  * 
  ***/
 
 #include "main.h"
-
-RS485 rs(SLAVE_KILLMISSION);
-
-Thread thread_killswitch;
-Thread thread_missionswitch;
 
 void function_kill()
 {
@@ -22,14 +18,7 @@ void function_kill()
   while(1)
   {
     rs.read(cmd_array,nb_command,buffer_receiver);
-    if(Killswitch.read())
-    {
-      buffer_send[0] = 1;
-    }
-    else
-    {
-      buffer_send[0] = 0;
-    }
+    buffer_send[0] = !Killswitch.read();
     rs.write(SLAVE_KILLMISSION,cmd_array[0],nb_byte_send,buffer_send);
   }
 }
@@ -45,14 +34,7 @@ void function_mission()
   while(1)
   {
     rs.read(cmd_array,nb_command,buffer_receiver);
-    if(Missionswitch.read())
-    {
-      buffer_send[0] = 1;
-    }
-    else
-    {
-      buffer_send[0] = 0;
-    }
+    buffer_send[0] = !Missionswitch.read();
     rs.write(SLAVE_KILLMISSION,cmd_array[0],nb_byte_send,buffer_send);
   }
 }

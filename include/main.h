@@ -7,6 +7,11 @@
 #include "RS485/RS485.h"
 #include "RS485/RS485_definition.h"
 
+RS485 rs(SLAVE_KILLMISSION);
+
+Thread thread_killswitch;
+Thread thread_missionswitch;
+
 DigitalIn Killswitch(KILL_SWITCH);
 DigitalIn Missionswitch(MISSION_SWITCH);
 
