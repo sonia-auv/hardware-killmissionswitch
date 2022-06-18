@@ -11,6 +11,7 @@ RS485 rs(SLAVE_KILLMISSION);
 
 Thread thread_killswitch;
 Thread thread_missionswitch;
+Thread thread_isAlive;
 
 DigitalIn Killswitch(KILL_SWITCH);
 DigitalIn Missionswitch(MISSION_SWITCH);

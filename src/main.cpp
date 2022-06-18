@@ -6,6 +6,7 @@
  ***/
 
 #include "main.h"
+#include "Utility/utility.h"
 
 void function_kill()
 {
@@ -45,5 +46,8 @@ int main()
   thread_killswitch.set_priority(osPriorityHigh);
 
   thread_missionswitch.start(function_mission);
+  thread_missionswitch.set_priority(osPriorityHigh);
+
+  thread_missionswitch.start(callback(isAliveThread, &rs));
   thread_missionswitch.set_priority(osPriorityHigh);
 }
