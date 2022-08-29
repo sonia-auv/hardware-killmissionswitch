@@ -1,2 +1,1 @@
-# Firmware_template
-template for new firmware project
+# Firmware Hardware AUV8 Killmission switch

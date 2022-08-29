@@ -5,6 +5,8 @@
 //              BOARD PIN DEFINITION
 //###################################################
 
+#define KILL_SWITCH PB_0
+#define MISSION_SWITCH PB_1
 
 //###################################################
 //              RS485 PIN DEFINITION
