@@ -3,3 +3,4 @@
 .vscode
 doxygen/html
 doxygen/latex
+.venv
